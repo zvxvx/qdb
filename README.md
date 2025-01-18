@@ -20,3 +20,7 @@ See it in action here: https://quote-database.netlify.app/
 ### Contributing
 
 Open a pr with a new branch titled appropriately to what you're contributing.
+
+### Features
+OS-based light/dark mode.
+Lightning fast simplicity in design.
