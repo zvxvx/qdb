@@ -1,0 +1,48 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const exampleEntry = `<steve> sup peeps!
+<ewkl> go away, steve.
+<steve> :(`;
+const styling =
+  "bg-neutral-100 text-neutral-900 dark:bg-neutral-700/80 dark:text-neutral-200";
+const dynamicBorder =
+  "rounded border border-neutral-800 dark:border-neutral-400";
+//If you use this form, you will need to get a secret key.
+const KEY = "import.meta.env.SECRET_KEY"; //remove quotes to use
+//! Feel free to replace submission logic of your own choosing.
+---
+
+<MainLayout title="submission">
+  <h2 class="pt-4">got something good?</h2>
+  <p
+    >Awesome. While not required, it helps to use the following formatting on
+    your submission for consistency.</p
+  >
+  <pre class={styling}>{exampleEntry}</pre>
+  <div>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value={KEY} />
+      <textarea
+        class=`resize-none w-full h-36 focus:outline-none ${dynamicBorder} ${styling} p-2 mb-2`
+        name="message"
+        required
+        minlength="20"
+        maxlength="2000"
+        wrap="hard"
+      >
+      </textarea>
+      <!-- Honeypot Spam Protection -->
+      <input
+        type="checkbox"
+        name="botcheck"
+        class="hidden"
+        style="display: none;"
+      />
+      <!-- Honeypot Spam Protection -->
+      <input type="hidden" name="redirect" value="https://example.com/thanks" />
+      <button class=`rounded my-1 p-2 ${dynamicBorder} ${styling}` type="submit"
+        >Submit</button
+      >
+    </form>
+  </div>
+</MainLayout>

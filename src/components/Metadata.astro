@@ -1,0 +1,32 @@
+---
+const { pre, title } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<meta
+  name="description"
+  content="A quote database inspired by the late bash.org. We accept user submissions."
+/>
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="qdb.sh :: latest quotes"
+  href={new URL("rss.xml", Astro.site)}
+/>
+<link rel="sitemap" href="/sitemap-index.xml" />
+<title>{pre}{title}</title>
+<style is:global>
+  @media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+      font-style: var(--shiki-dark-font-style) !important;
+      font-weight: var(--shiki-dark-font-weight) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+
+const quotes = await getCollection("quotes");
+const counter = quotes.length;
+const lineStyle = "border-neutral-900 dark:border-neutral-300 mb-2";
+---
+
+<div>
+  <h2>welcome!</h2>
+  <hr class={lineStyle} />
+  <p
+    >Welcome to your friendly or (no-so-friendly) quote database! We house quotes from many different platforms, so submit your quote today!</p>
+    <p>Unlike many other quote databases out there, we have no voting mechanism. We curate them carefully enough to ensure we only provide the highest quality quotes. Or at least, we try.</p>
+  <h2>stats</h2>
+  <hr class={lineStyle} />
+  <p>{counter} quotes have been published.</p>
+  <h2>irc</h2>
+  <hr class={lineStyle} />
+  <ul>
+    <li
+      >network: <a href="https://libera.chat" target="_blank">libera chat</a
+      ></li
+    >
+    <li>channel: #your-channel-here</li>
+    <li>join: <a href="https://web.libera.chat/" target="_blank">libera web chat</a></li>
+  </ul>
+</div>

@@ -1,0 +1,17 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Markdown } from '@astropub/md'
+import { getCollection } from "astro:content";
+const quotes = await getCollection("quotes");
+const sorted = quotes.sort((a: any,b: any) => b.id - a.id).slice(0,11);
+---
+<MainLayout title="latest">
+  <div class="pt-4">
+    {sorted.map((q: any) =>
+    <a href={`/quotes/${q.id}`}><h2>{q.id}</h2></a>
+      <div class="mt-[-20px]">
+        <Markdown of={q.body}/>
+      </div>
+    )}
+  </div>
+</MainLayout>

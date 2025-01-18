@@ -1,0 +1,10 @@
+---
+import MainLayout from "./MainLayout.astro";
+const path = Astro.url.pathname;
+const title = path + "/";
+const correctPath = title.slice(8, 14);
+---
+
+<MainLayout title={correctPath}>
+  <slot />
+</MainLayout>

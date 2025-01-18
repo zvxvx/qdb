@@ -1,0 +1,32 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Markdown from '@astropub/md/Markdown';
+import { getCollection } from 'astro:content';
+export async function getStaticPaths({ paginate }) {
+  const quotes = await getCollection("quotes"); 
+  return paginate(quotes, { pageSize: 5 });
+}
+const { page } : {page : any} = Astro.props;
+//move pagination nav to a component
+const pageNavStyle = "flex justify-between w-96 mx-auto p-2";
+---
+<MainLayout title=`quotes page ${page.currentPage}`>
+  <div class={pageNavStyle}>
+    <h3><a href={page.url.first} class={`${page.url.first ? 'font-bold' : 'no-underline'}`}>&lt;&lt;</a></h3>
+    <h3><a href={page.url.prev}class={`${page.url.prev ? 'font-bold' : 'no-underline'}`}>&lt;</a></h3>
+    <h3><a href={page.url.next}class={`${page.url.next ? 'font-bold' : 'no-underline'}`}>&gt;</a></h3>
+    <h3><a href={page.url.last} class={`${page.url.last ? 'font-bold' : 'no-underline'}`}>&gt;&gt;</a></h3>
+  </div>
+  {page.data.map((q: any) => 
+    <a href={`/quotes/${q.id}`}><h2>{q.id}</h2></a>
+      <div class="mt-[-20px]">
+        <Markdown of={q.body}/>
+      </div>
+  )}
+  <div class={pageNavStyle}>
+    <h3><a href={page.url.first} class={`${page.url.first ? 'font-bold' : 'no-underline'}`}>&lt;&lt;</a></h3>
+    <h3><a href={page.url.prev}class={`${page.url.prev ? 'font-bold' : 'no-underline'}`}>&lt;</a></h3>
+    <h3><a href={page.url.next}class={`${page.url.next ? 'font-bold' : 'no-underline'}`}>&gt;</a></h3>
+    <h3><a href={page.url.last} class={`${page.url.last ? 'font-bold' : 'no-underline'}`}>&gt;&gt;</a></h3>
+  </div>
+</MainLayout>

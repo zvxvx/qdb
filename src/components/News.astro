@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import Markdown from '@astropub/md/Markdown';
+const newsPosts = await getCollection('news');
+const sortedPosts = newsPosts.sort((a:any, b:any) => b.data.date - a.data.date);
+---
+  <div>
+  <h2>news</h2>
+<hr class="border-neutral-900 dark:border-neutral-300 mb-2">
+    {sortedPosts.map((p: any) =>
+      <h3>{p.data.date.toISOString().slice(0,10)}</h3>
+      <Markdown of={p.body}/>
+    )}
+  </div>

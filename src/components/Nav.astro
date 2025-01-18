@@ -1,0 +1,22 @@
+---
+import RandomQuote from "../components/RandomQuote";
+import { getCollection } from "astro:content";
+const quotes = await getCollection("quotes");
+const path = Astro.url.pathname;
+---
+
+<nav class="flex text-lg gap-4 justify-end"
+  ><a href="/" class=`no-underline ${path == "/" && "font-bold"}`>home</a>
+  <a
+    href="/submission/"
+    class=`no-underline ${path == "/submission/" && "font-bold"}`>submit</a
+  >
+  <a href="/latest/" class=`no-underline ${path == "/latest/" && "font-bold"}`
+    >latest</a
+  >
+  <a
+    href="/quotes/1/"
+    class=`no-underline ${path == "/quotes/1/" && "font-bold"}`>quotes</a
+  >
+  <RandomQuote collection={quotes} client:load />
+</nav>

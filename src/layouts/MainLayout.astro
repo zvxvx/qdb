@@ -1,0 +1,21 @@
+---
+import Header from "../components/Header.astro";
+import Metadata from "../components/Metadata.astro";
+import Prose from "../components/Prose.astro";
+import Footer from "../components/Footer.astro";
+const { title } = Astro.props;
+const pre = "qdb.sh :: ";
+---
+
+<html lang="en">
+  <head>
+    <Metadata pre={pre} title={title} />
+  </head>
+  <body class="dark:bg-neutral-950/90 bg-neutral-300/90 max-w-4xl mx-auto p-2">
+    <Prose>
+      <Header pre={pre} title={title} />
+      <slot />
+      <Footer />
+    </Prose>
+  </body></html
+>
