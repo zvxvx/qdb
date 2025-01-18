@@ -1,17 +1,17 @@
 # QDB
 
-#### an irc quote database inspired by the glory days of bash.org
+#### an irc quote database powered by astro and inspired by bash.org.
 
 ### Quotes
 
-- Each submission will be put in an .md file in src/content/quotes
+- Quotes are .md files stored in src/data/quotes
 - This generates a static path to the quote, as well as added to the growing paginated list of quotes.
 - Manual work should only be making a new .md file.
 
 ### News
 
-- .md files w/ frontmatter stored in src/content/news
-- This will probably be used sparingly.
+- News are .md files stored in src/data/news
+- Manual work should only be making a new .md file.
 
 ### Contributing
 
