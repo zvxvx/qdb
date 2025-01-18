@@ -12,7 +12,7 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   integrations: [tailwind(), markdownIntegration(), sitemap(), react()],
-  site: "https://quote.database.netlify.app",
+  site: "https://quote-database.netlify.app",
   markdown: {
     shikiConfig: {
       wrap: true,
