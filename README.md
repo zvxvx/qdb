@@ -22,5 +22,5 @@ See it in action here: https://quote-database.netlify.app/
 Open a pr with a new branch titled appropriately to what you're contributing.
 
 ### Features
-OS-based light/dark mode.
-Lightning fast simplicity in design.
+- OS-based light/dark mode.
+- Lightning fast simplicity in design.
