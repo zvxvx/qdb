@@ -1,6 +1,6 @@
 # QDB
 
-#### An irc quote database powered by astro and inspired by bash.org.
+#### A quote database powered by astro and inspired by the late bash.org.
 
 See it in action here: https://quote-database.netlify.app/
 
